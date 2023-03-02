@@ -1,15 +1,7 @@
 package DuckBackage;
 
-public class RubberDuck extends Duck{
-    @Override
-    public boolean quack() {
-        return true;
-    }
+public class RubberDuck extends Duck implements Quack{
 
-    @Override
-    public boolean fly() {
-        return false;
-    }
 
     @Override
     public boolean swim() {
@@ -34,5 +26,21 @@ public class RubberDuck extends Duck{
     @Override
     public int age() {
         return 100;
+    }
+
+
+    @Override
+    public boolean quack() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nQuack : "+quack()+"\nWeight : "+weight();
+    }
+
+    @Override
+    public double weight() {
+        return 0.150;
     }
 }
