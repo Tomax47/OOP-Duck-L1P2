@@ -1,6 +1,11 @@
 package DuckBackage;
 
-public class RubberDuck extends Duck implements Quack{
+public class RubberDuck extends Duck {
+
+    public RubberDuck(){
+        flyBehavior = new FlyNoWay();
+        quackBehavior = new Squeak();
+    }
 
 
     @Override
@@ -30,17 +35,23 @@ public class RubberDuck extends Duck implements Quack{
 
 
     @Override
-    public boolean quack() {
-        return true;
+    public String toString() {
+        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nFly : "+performFly()+"\nQuack : "+performQuack()+"\nWeight : "+weight();
     }
 
     @Override
-    public String toString() {
-        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nQuack : "+quack()+"\nWeight : "+weight();
+    public String performFly() {
+        return flyBehavior.getFly();
+    }
+
+    @Override
+    public String performQuack() {
+        return quackBehavior.getQuack();
     }
 
     @Override
     public double weight() {
         return 0.150;
     }
+
 }

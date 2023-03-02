@@ -1,6 +1,11 @@
 package DuckBackage;
 
 public class DecoyDuck extends Duck{
+
+    public DecoyDuck(){
+        flyBehavior = new FlyNoWay();
+        quackBehavior = new MuteDuck();
+    }
     @Override
     public boolean swim() {
         return true;
@@ -10,6 +15,7 @@ public class DecoyDuck extends Duck{
     public String display() {
         return "It looks like normal ducks!";
     }
+
 
     @Override
     public String origin() {
@@ -28,11 +34,22 @@ public class DecoyDuck extends Duck{
 
     @Override
     public String toString() {
-        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"Weight : "+weight();
+        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nFly : "+performFly()+"\nQuack : "+performQuack()+"\nWeight : "+weight();
+    }
+
+    @Override
+    public String performFly() {
+        return flyBehavior.getFly();
+    }
+
+    @Override
+    public String performQuack() {
+        return quackBehavior.getQuack();
     }
 
     @Override
     public double weight() {
         return 2.15;
     }
+
 }

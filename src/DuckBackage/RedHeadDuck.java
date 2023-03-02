@@ -1,6 +1,11 @@
 package DuckBackage;
 
-public class RedHeadDuck extends Duck implements Quack, Fly{
+public class RedHeadDuck extends Duck {
+
+    public RedHeadDuck(){
+        flyBehavior = new FliWithWings();
+        quackBehavior = new Quack();
+    }
 
 
     @Override
@@ -12,6 +17,7 @@ public class RedHeadDuck extends Duck implements Quack, Fly{
     public String display() {
         return "It looks similar to the Millard duck!";
     }
+
 
     @Override
     public String origin() {
@@ -30,22 +36,23 @@ public class RedHeadDuck extends Duck implements Quack, Fly{
 
 
     @Override
-    public boolean fly() {
-        return true;
-    }
-
-    @Override
-    public boolean quack() {
-        return true;
-    }
-
-    @Override
     public String toString() {
-        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nFly : "+fly()+"\nQuack : "+quack()+"Weight : "+weight();
+        return "Display : "+display()+"\nSwim : "+swim()+"\nOrigin : "+origin()+"\nColor : "+color()+"\nAge : "+age()+"\nFly : "+performFly()+"\nQuack : "+performQuack()+"\nWeight : "+weight();
+    }
+
+    @Override
+    public String performFly() {
+        return flyBehavior.getFly();
+    }
+
+    @Override
+    public String performQuack() {
+        return quackBehavior.getQuack();
     }
 
     @Override
     public double weight() {
         return 4.5;
     }
+
 }
